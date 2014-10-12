@@ -79,12 +79,12 @@
 				                            Enter the details of your new Groups here
 				                        </div>
 				                        <div class="panel-body">
-				                            <form id="employeeCreate" role="form">
+				                            <form id="formCreate" role="form">
 					                            <div class="row">
 					                                <div class="col-lg-6">
 				                                        <div class="form-group">
 				                                            <label>Group Name</label>
-				                                            <input name="txtFName" class="form-control">
+				                                            <input name="txtName" class="form-control">
 				                                            <p class="help-block">Example block-level help text here.</p>
 				                                        </div>
 				                                        <div class="form-group">
