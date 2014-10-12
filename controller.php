@@ -14,12 +14,12 @@ switch($module){
 				case 'set':
 				$path = "images/projects/"
 
-			$filename1=$_FILES['upfile']['name'].$_REQUEST['id'];
+$filename1=$_FILES['upfile']['name'].$_REQUEST['id'];
 
-			if($_FILES['upfile']['error']>0)
-				{
-					
-				}
+if($_FILES['upfile']['error']>0)
+   {
+    echo "error"
+   }
 
    else
     {
@@ -61,6 +61,18 @@ switch($module){
 								.$_REQUEST['txtYoutubeURL']."')";				
 				$resg1= mysql_query($qryg1)or die(mysql_error());
 				sendMail($_REQUEST['txtEmail'], "[CProfile] Welcome on board!!!", "Dear ".$_REQUEST['txtFName'].", Welcome on board!!! Please login here http://www.cprofile.org/login.html");
+				echo $qryg1;	
+				break;
+			}
+		break;
+	case 'skill':
+			switch($actn){
+				case 'set':
+				$qryg1="insert into tbl_skill (name, category, details) 
+						values ('".$_REQUEST['txtName']."', '"
+								.$_REQUEST['catCategory']."', '"
+								.$_REQUEST['txtDetails']."')";				
+				$resg1= mysql_query($qryg1)or die(mysql_error());
 				echo $qryg1;	
 				break;
 			}
@@ -125,26 +137,24 @@ switch($module){
 	case 'group':
 		switch($actn){
 			case 'set':
-				
-			
-				$qryd1="insert into tbl_group (charityorg_id, project_title, status, details, facebook, hashTag, video_url, image, skills) values ('".$_REQUEST['charityorg_id']."', '".$_REQUEST['txtFName']."', '".$_REQUEST['status']."', '".$_REQUEST['txtDetails']."', '".$_REQUEST['txtFacebook']."', '".$_REQUEST['txtHashtag']."', '".$_REQUEST['txtYoutubeURL']."', '" "', '".$_REQUEST['txtSkillsRequired']."')";
+				$qryd1="insert into tbl_group (groupId, name, description, entityId, status, dateCreated) values ('".$_REQUEST['gid']."', '".$_REQUEST['name']."', '".$_REQUEST['desc']."', '".$_REQUEST['etid']."', '".$_REQUEST['status']."', '".$_REQUEST['dcreate']."')";
 				$resd1= mysql_query($qryd1)or die(mysql_error());
 				
 			break;
 			case 'get':
-				$qryd2="select id, charityorg_id, project_title, status, details, facebook, hashTag, video_url, image, skills from tbl_group";
+				$qryd2="select groupId, name, description, entityId, status, dateCreated from tbl_group";
 				$resd2= mysql_query($qryd2) or die(mysql_error());
 				while($rowd2= mysql_fetch_array($resd2))
 				 {
-					$strin = $strin . '{"id":"'.$rowd2['id'].'", "charityorg_id":"'.$rowd2['charityorg_id'].'", "project_title":"'.$rowd2['project_title'].'", "status":"'.$rowd2['status'].'", "details":"'.$rowd2['details'].'", "facebook":"'.$rowd2['facebook'].'", "hashTag": "'.$rowd2['hashTag'].'", "video_url": "'.$rowd2['video_url'].'", "image":"'.$rowd2['image'].'", "skills":"'.$rowd2['skills'].'"},';
+					$strin = $strin . '{"id":"'.$rowd2['groupId'].'", "name":"'.$rowd2['name'].'", "description":"'.$rowd2['description'].'", "entityId":"'.$rowd2['entityId'].'", "status":"'.$rowd2['status'].'", "dateCreated":"'.$rowd2['dateCreated'].'"},';
 				 }
 				
 				$strin = mb_substr($strin, 0, -1);
 				echo "[".$strin."]";
 			break;
 			case 'update':
-			//	$qryd3="update tbl_group set name = '".$_REQUEST['nname']."' where groupId = '".$_REQUEST['']."'";
-			//	$resd3= mysql_query($qryd3) or die(mysql_error());
+				$qryd3="update tbl_group set name = '".$_REQUEST['nname']."' where groupId = '".$_REQUEST['']."'";
+				$resd3= mysql_query($qryd3) or die(mysql_error());
 				
 		break;
 	
