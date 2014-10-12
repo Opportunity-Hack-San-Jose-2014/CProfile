@@ -315,6 +315,7 @@ $('.nav-tabs > li').mouseout( function(){
 	                +'<th>End</th>'
 	                +'<th>Skills</th>'
 	                +'<th>Twitter</th>'
+	                +'<th>Donate</th>'
 	                +'</tr>'
 	                +'</thead>'
 	                +'<tbody>'
@@ -328,5 +329,15 @@ $('.nav-tabs > li').mouseout( function(){
 
 	getEmployees('tableRowsProjects','');
 
+</script>
+<script>
+function paypal() {
+	alert("Hello");
+	//document.getElementById('paypal').innerHTML='';
+	$("paypal").show();
+}
+function f1() {
+
+}
 </script>
 

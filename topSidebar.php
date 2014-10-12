@@ -19,6 +19,12 @@
                             <a href="socialmedia.php"><i class="fa fa-table fa-fw"></i> Social Networking</a>
                         </li>
                         <li>
+                            <a class="active" href="paypal.php"><i class="fa fa-edit fa-fw"></i> Donate</a>
+                        </li>                        
+                        <li>
+                            <a class="active" href="invite.php"><i class="fa fa-edit fa-fw"></i> Invite</a>
+                        </li>                        
+						<li>
                             <a class="active" href="projects.php"><i class="fa fa-edit fa-fw"></i> Projects</a>
                         </li>                        
                         <li>

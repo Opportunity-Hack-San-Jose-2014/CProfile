@@ -41,6 +41,18 @@ switch($module){
 				break;
 			}
 		break;
+	case 'group':
+			switch($actn){
+				case 'set':
+				$qryg1="insert into tbl_skill (name, category, details) 
+						values ('".$_REQUEST['txtName']."', '"
+								.$_REQUEST['catCategory']."', '"
+								.$_REQUEST['txtDetails']."')";				
+				$resg1= mysql_query($qryg1)or die(mysql_error());
+				echo $qryg1;	
+				break;
+			}
+		break;
 	case 'employee':
 			switch($actn){
 				case 'set':
