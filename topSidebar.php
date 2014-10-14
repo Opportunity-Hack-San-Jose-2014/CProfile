@@ -16,11 +16,8 @@
                             <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="socialmedia.php"><i class="fa fa-table fa-fw"></i> Social Networking</a>
+                            <a href="socialmedia.php"><i class="fa fa-table fa-fw"></i> NPO</a>
                         </li>
-                        <li>
-                            <a class="active" href="paypal.php"><i class="fa fa-edit fa-fw"></i> Donate</a>
-                        </li>                        
                         <li>
                             <a class="active" href="invite.php"><i class="fa fa-edit fa-fw"></i> Invite</a>
                         </li>                        
@@ -36,6 +33,9 @@
                         <li>
                             <a class="active" href="skills.php"><i class="fa fa-edit fa-fw"></i> Skills</a>
                         </li>
+                        <li>
+                            <a class="active" href="donatepp.php" targer="_new"><i class="fa fa-edit fa-fw"></i> Donate</a>
+                        </li>                        
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

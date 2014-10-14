@@ -79,7 +79,7 @@
 				                            Enter the details of a new Project to be started
 				                        </div>
 				                        <div class="panel-body">
-				                            <form id="projectCreate" role="form">
+				                            <form id="formCreate" role="form">
 					                            <div class="row">
 					                                <div class="col-lg-6">
 				                                        <div class="form-group">
@@ -262,14 +262,14 @@ $('.nav-tabs > li').mouseout( function(){
 	$("#butSubmit").click(function (){
 		ajax({
 			url: "controller.php",
-			data: $("#projectCreate").serialize(),
-			callback: "projectSet"
+			data: $("#formCreate").serialize(),
+			callback: "formSet"
 			});
 	});
 	
 	function callback(oDataParam) {
 		switch(oDataParam.callback) {
-		case "projectSet":
+		case "formSet":
 			location.href="projects.php";
 			break;	
 		}
@@ -301,7 +301,7 @@ $('.nav-tabs > li').mouseout( function(){
 					fbPostHtml = fbPostHtml + '<td>'+respData[i]['start_date']+'</td>';
 					fbPostHtml = fbPostHtml + '<td>'+respData[i]['end_date']+'</td>';
 					fbPostHtml = fbPostHtml + '<td>'+respData[i]['skills']+'</td>';
-					fbPostHtml = fbPostHtml + '<td>'+respData[i]['hashTag']+'</td>';
+					fbPostHtml = fbPostHtml + '<td>'+respData[i]['hashTag']+'</td>';					
 					fbPostHtml = fbPostHtml + '</tr>';
 				}
 				fbPostHtml = '<table class="table">'
@@ -315,7 +315,6 @@ $('.nav-tabs > li').mouseout( function(){
 	                +'<th>End</th>'
 	                +'<th>Skills</th>'
 	                +'<th>Twitter</th>'
-	                +'<th>Donate</th>'
 	                +'</tr>'
 	                +'</thead>'
 	                +'<tbody>'
@@ -329,15 +328,5 @@ $('.nav-tabs > li').mouseout( function(){
 
 	getEmployees('tableRowsProjects','');
 
-</script>
-<script>
-function paypal() {
-	alert("Hello");
-	//document.getElementById('paypal').innerHTML='';
-	$("paypal").show();
-}
-function f1() {
-
-}
 </script>
 

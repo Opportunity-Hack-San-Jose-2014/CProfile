@@ -12,19 +12,6 @@ switch($module){
 	case 'project':
 			switch($actn){
 				case 'set':
-				$path = "images/projects/"
-
-$filename1=$_FILES['upfile']['name'].$_REQUEST['id'];
-
-if($_FILES['upfile']['error']>0)
-   {
-    echo "error"
-   }
-
-   else
-    {
-	   move_uploaded_file($_FILES["upfile"]["tmp_name"],$path . $filename1);
-	}
 				$qryg1="insert into tbl_project (project_title, target_donation, details, start_date, end_date, facebook, hashTag, volunteers_required, skills, location, video_url, image) 
 						values ('".$_REQUEST['txtTitle']."', '"
 								.$_REQUEST['txtFundsRequired']."', '"
@@ -137,28 +124,17 @@ if($_FILES['upfile']['error']>0)
 	case 'group':
 		switch($actn){
 			case 'set':
-				$qryd1="insert into tbl_group (groupId, name, description, entityId, status, dateCreated) values ('".$_REQUEST['gid']."', '".$_REQUEST['name']."', '".$_REQUEST['desc']."', '".$_REQUEST['etid']."', '".$_REQUEST['status']."', '".$_REQUEST['dcreate']."')";
+				$qryd1="insert into tbl_group (charityorg_id, name, details, facebook, hashTag, video_url, skills) values ('"
+						.$_REQUEST['txtCharityOrgId']."', '"
+						.$_REQUEST['txtName']."', '"
+						.$_REQUEST['txtDetails']."', '"
+						.$_REQUEST['txtFacebook']."', '"
+						.$_REQUEST['txtHashtag']."', '"
+						.$_REQUEST['txtYoutubeURL']."', '"
+						.$_REQUEST['txtSkillsRequired']."')";
 				$resd1= mysql_query($qryd1)or die(mysql_error());
 				
 			break;
-			case 'get':
-				$qryd2="select groupId, name, description, entityId, status, dateCreated from tbl_group";
-				$resd2= mysql_query($qryd2) or die(mysql_error());
-				while($rowd2= mysql_fetch_array($resd2))
-				 {
-					$strin = $strin . '{"id":"'.$rowd2['groupId'].'", "name":"'.$rowd2['name'].'", "description":"'.$rowd2['description'].'", "entityId":"'.$rowd2['entityId'].'", "status":"'.$rowd2['status'].'", "dateCreated":"'.$rowd2['dateCreated'].'"},';
-				 }
-				
-				$strin = mb_substr($strin, 0, -1);
-				echo "[".$strin."]";
-			break;
-			case 'update':
-				$qryd3="update tbl_group set name = '".$_REQUEST['nname']."' where groupId = '".$_REQUEST['']."'";
-				$resd3= mysql_query($qryd3) or die(mysql_error());
-				
-		break;
-	
-	
 		}
 	
 		break;

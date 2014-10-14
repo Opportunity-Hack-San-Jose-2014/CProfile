@@ -49,7 +49,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">CProfile.org</a>
+                <a class="navbar-brand" href="home.php">CProfile.org</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -60,7 +60,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Social Media Interactions</h1>
+                    <h1 class="page-header">NPO Social Interactions</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

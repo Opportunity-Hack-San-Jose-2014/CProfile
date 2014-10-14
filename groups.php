@@ -124,7 +124,7 @@
 				                                        </div>
 				                                    </div>
 				                                    <input type="hidden" name="txtCharityOrgId" value="1">
-				                                    <input type="hidden" name="module" value="employee">
+				                                    <input type="hidden" name="module" value="group">
 				                                    <input type="hidden" name="action" value="set">
 				                                </form>
 				                            </div>
@@ -220,24 +220,18 @@ $('.nav-tabs > li').mouseout( function(){
 	$("#butSubmit").click(function (){
 		ajax({
 			url: "controller.php",
-			data: $("#employeeCreate").serialize(),
-			callback: "employeeSet"
+			data: $("#formCreate").serialize(),
+			callback: "formSet"
 			});
 	});
 	
 	function callback(oDataParam) {
 		switch(oDataParam.callback) {
-		case "employeeSet":
-			location.href="employees.php";
+		case "formSet":
+			location.href="groups.php";
 			break;	
 		}
 	}
-	
-	$(function (){
-		$("#txtDateOfBirth").datepicker();
-		$("#txtDateOfJoin").datepicker();
-	});
-
 </script>
 <script>
 	function getEmployees(paramDiv, paramPageId) {
@@ -252,11 +246,11 @@ $('.nav-tabs > li').mouseout( function(){
 				for (i=0; i<respData.length; i++) {
 					//alert(fbPosts['data'][i]['message']);
 					fbPostHtml = fbPostHtml + '<tr>';
-					fbPostHtml = fbPostHtml + '<td>'+respData[i]['fName']+'</td>';
-					fbPostHtml = fbPostHtml + '<td>'+respData[i]['lName']+'</td>';
-					fbPostHtml = fbPostHtml + '<td>'+respData[i]['emailId']+'</td>';
-					fbPostHtml = fbPostHtml + '<td>'+respData[i]['date_of_birth']+'</td>';
-					fbPostHtml = fbPostHtml + '<td>'+respData[i]['start_date']+'</td>';
+					fbPostHtml = fbPostHtml + '<td>'+respData[i]['name']+'</td>';
+					fbPostHtml = fbPostHtml + '<td>'+respData[i]['status']+'</td>';
+					fbPostHtml = fbPostHtml + '<td>'+respData[i]['details']+'</td>';
+					fbPostHtml = fbPostHtml + '<td>'+respData[i]['hashTag']+'</td>';
+					fbPostHtml = fbPostHtml + '<td>'+respData[i]['video_url']+'</td>';
 					fbPostHtml = fbPostHtml + '<td>'+respData[i]['facebook']+'</td>';
 					fbPostHtml = fbPostHtml + '<td>'+respData[i]['skills']+'</td>';
 					fbPostHtml = fbPostHtml + '</tr>';
@@ -264,12 +258,12 @@ $('.nav-tabs > li').mouseout( function(){
 				fbPostHtml = '<table class="table">'
 	                +'<thead>'
 	                +'<tr>'
-	                +'<th>First Name</th>'
-	                +'<th>Last Name</th>'
-	                +'<th>Email Id</th>'
-	                +'<th>DOB</th>'
-	                +'<th>DOJ</th>'
-	                +'<th>Facebook Id</th>'
+	                +'<th>Name</th>'
+	                +'<th>Status</th>'
+	                +'<th>Details</th>'
+	                +'<th>Twitter</th>'
+	                +'<th>Facebook</th>'
+	                +'<th>Youtube</th>'
 	                +'<th>Skills</th>'
 	              	+'</tr>'
 	                +'</thead>'
